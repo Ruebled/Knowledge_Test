@@ -6,7 +6,15 @@ namespace ObjectDefines
 	{
 		public Stud(){}
 
-		public Stud(string[] data) : base(data){}
+		public Stud(string[] data) : base(data)
+		{
+
+		}
+
+		public override string[] getMenu()
+		{
+			return new string[] {};
+		}
 	}
 }
 

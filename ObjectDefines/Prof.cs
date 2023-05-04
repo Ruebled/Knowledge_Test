@@ -10,6 +10,11 @@ namespace ObjectDefines
 		{
 
 		}
+
+		public override string[] getMenu()
+		{
+			return new string[] {};
+		}
 	}
 }
 

@@ -8,8 +8,12 @@ namespace ObjectDefines
 
 		public Admin(string[] data) : base(data)
 		{
-						
 
+		}
+
+		public override string[] getMenu()
+		{
+			return new string[] {};
 		}
 	}
 }

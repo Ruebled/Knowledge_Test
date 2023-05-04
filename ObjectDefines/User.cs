@@ -9,13 +9,21 @@ namespace ObjectDefines
 	//	int year;
 	//}
 
+	enum USERDATA {
+		ID = 0,
+		FIRST_NAME,
+		LAST_NAME,
+		BIRTH_DATE,
+		OCUPATION		
+	}
+
 	public class User
 	{
-		protected int ID = 0;
-		protected string firstName = "";
-		protected string lastName = "";
-		protected string birthDate = "";
-		protected string ocupation = "";
+		public int ID { get; set;}
+		public string firstName { get; set;}
+		public string lastName { get; set;}
+		public string birthDate { get; set;} 
+		public int ocupation { get; set;}
 
 		protected string[] menuOptions = new string[] {};
 
@@ -24,17 +32,16 @@ namespace ObjectDefines
 		//ID:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
 		public User(string[] userData)
 		{
-			
+			ID = Convert.ToInt32(userData[(int)USERDATA.ID]);
+			firstName = userData[(int)USERDATA.FIRST_NAME];
+			lastName = userData[(int)USERDATA.LAST_NAME];
+			birthDate = userData[(int)USERDATA.BIRTH_DATE];
+			ocupation = Convert.ToInt32(userData[(int)USERDATA.OCUPATION]);
 		}
 
-		public string[] getMenu()
+		public virtual string[] getMenu()
 		{
 			return new string[] {};
-		}
-
-		public void executeOption(int option)
-		{
-			return;
 		}
 	}
 }

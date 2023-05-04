@@ -20,7 +20,7 @@ namespace DataAdministration
 			streamTextFile.Close();
 		}
 
-		public User getUser(string username, string password)
+		public User? getUser(string username, string password)
 		{
 			string?	line;
 			StreamReader streamReader;
@@ -57,16 +57,12 @@ namespace DataAdministration
 					{
 						case 1:
 							return new Admin(userData);
-							break;
 						case 2:
 							return new Prof(userData);
-							break;
 						case 3:
 							return new Stud(userData);
-							break;
 						default:
 							return null;
-							break;
 					}
 				}
 			}

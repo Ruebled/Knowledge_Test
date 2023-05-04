@@ -19,6 +19,18 @@ namespace ConsoleTest
 	//		Student
 	//	}
 
+		enum MENU {
+			NONE,
+			ADD_USER,
+			DELETE_USER,
+			FIND_USER,
+			ADD_TEST,
+			REMOVE_TEST,
+			LIST_TEST,
+			TEST_SHOW,
+			TRY_TEST,
+		}
+
 		static void Main(string[] args)
 		{
 			User user; // Create empty user for further definition
@@ -48,6 +60,8 @@ namespace ConsoleTest
 					}else{
 						password = new String(password.Trim());
 					}
+					Console.WriteLine(username);
+					Console.WriteLine(password);
 
 					user = tryLogin.getUser(username, password);
 
@@ -55,13 +69,15 @@ namespace ConsoleTest
 
 					// Error message
 					Console.WriteLine("Username or Password incorect");
-
 				}while(true);
 
 				do
 				{
 					Console.Clear();
 					
+					/// Complete menu list for every class
+					/// Write all the function below make it workable
+
 					string[] optionsMenu = user.getMenu();
 
 					foreach (string menuOption in optionsMenu)
@@ -75,9 +91,38 @@ namespace ConsoleTest
 					//Check for emptyness or anything else of int + convert
 					bool result = int.TryParse(input, out int option);
 
-					if(result!=true) continue;
+					if(result!=true && (option > 3 || option < 1)) continue;
 
-					user.executeOption(option);
+					// Menu part
+					switch(option+user.ocupation)
+					{
+						case (int)MENU.ADD_USER:
+							break;
+
+						case (int)MENU.DELETE_USER:
+							break;
+
+						case (int)MENU.FIND_USER:
+							break;
+
+						case (int)MENU.ADD_TEST:
+							break;
+
+						case (int)MENU.REMOVE_TEST:
+							break;
+
+						case (int)MENU.LIST_TEST:
+							break;
+
+						case (int)MENU.TEST_SHOW:
+							break;
+
+						case (int)MENU.TRY_TEST:
+							break;
+
+						default:
+							break;
+					}
 
 					Console.ReadLine();
 

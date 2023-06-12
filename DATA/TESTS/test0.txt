@@ -14,16 +14,3 @@ fdafe
 0:fagas
 1:gagfd
 0:fadfa
-===
-faefagfaf
----
-fdafefa
-0:fadfe
-1:fadfag
-0:fagasdf
----
-fadgeg
-0:gfadga
-0:faggfdf
-1:agfagf
-===

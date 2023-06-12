@@ -185,6 +185,9 @@
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>306, 177</value>
   </data>
+  <data name="textBox1.MaxLength" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>229, 32</value>
   </data>
@@ -230,35 +233,39 @@
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+  <data name="txtWelcome.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="txtWelcome.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 24pt</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>264, 71</value>
+  <data name="txtWelcome.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 71</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtWelcome.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 49</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+  <data name="txtWelcome.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
+  <data name="txtWelcome.Text" xml:space="preserve">
     <value>Welcome</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;txtWelcome.Name" xml:space="preserve">
+    <value>txtWelcome</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+  <data name="&gt;&gt;txtWelcome.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtWelcome.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txtWelcome.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnLogin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="btnLogin.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10pt</value>
@@ -314,14 +321,20 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="btnCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10pt</value>
+  </data>
+  <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>273, 310</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 29</value>
+    <value>90, 29</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -359,7 +372,6 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>697, 410</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>

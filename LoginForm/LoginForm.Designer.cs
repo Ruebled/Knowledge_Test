@@ -33,7 +33,7 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtWelcome = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -62,16 +62,19 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.UseSystemPasswordChar = true;
             // 
-            // label3
+            // txtWelcome
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.txtWelcome, "txtWelcome");
+            this.txtWelcome.Name = "txtWelcome";
             // 
             // btnLogin
             // 
+            this.btnLogin.CausesValidation = false;
+            this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.OK;
             resources.ApplyResources(this.btnLogin, "btnLogin");
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label4
             // 
@@ -80,10 +83,13 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.CausesValidation = false;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.Name = "btnCancel";
+            this.btnCancel.TabStop = false;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // Login
             // 
@@ -96,13 +102,12 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtWelcome);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
@@ -110,6 +115,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,7 +127,7 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label txtWelcome;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancel;

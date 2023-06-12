@@ -1,41 +1,51 @@
 ﻿using System.IO;
+//using System.IO.Enumeration;
 using ObjectDefines;
+using System.Configuration;
+using System;
 
 namespace DataAdministration
 {
     public class userLogin
     {
-		private const string LOGIN_DATA_FILE = "login_credentials.txt";
-		private const string USER_DATA_FILE = "user_data.txt";
-		private const string LOGIN_DATA_FILE_DELIM = ":";
+		private string LOGIN_DATA_FILE;
+		private const char LOGIN_DATA_FILE_DELIM = ':';
 
-		public userLogin()
+        private string USER_DATA_FILE = "user_data.txt";
+
+
+        public userLogin()
 		{
 			Stream streamTextFile;
 
-			streamTextFile = File.Open(LOGIN_DATA_FILE, FileMode.OpenOrCreate);
+            string FileName = ConfigurationManager.AppSettings["LoginFileName"];
+            string SolutionFileLocation = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName;
+            LOGIN_DATA_FILE = SolutionFileLocation + "\\" + "DATA" + "\\" + FileName;
+
+            streamTextFile = File.Open(LOGIN_DATA_FILE, FileMode.OpenOrCreate);
 			streamTextFile.Close();
 
 			streamTextFile = File.Open(USER_DATA_FILE, FileMode.OpenOrCreate);
 			streamTextFile.Close();
 		}
 
-		public User? getUser(string username, string password)
+		public User getUser(string username, string password)
 		{
-			string?	line;
+			string line;
 			StreamReader streamReader;
 
-			string?[] userLoginData = new string[] {};
+			string[] userLoginData = System.Array.Empty<string>();
 
 			// Get userID and OcupationID from Login_Data_file
 			streamReader = new StreamReader(LOGIN_DATA_FILE, true);
-			while ((line = new String(streamReader.ReadLine())) != String.Empty)
+
+			while ((line = streamReader.ReadLine()) != String.Empty)
 			{
 				//ID:USERNAME:PASSWORD:ROLE
 				userLoginData = line.Trim().Split(LOGIN_DATA_FILE_DELIM);
 				if(userLoginData[1] == username && userLoginData[2] == password)
 					break;
-				userLoginData = new string[] {};
+				userLoginData = Array.Empty<string>();
 			}
 			streamReader.Close();
 
@@ -43,7 +53,7 @@ namespace DataAdministration
 
 			// Get user data from another file
 			streamReader = new StreamReader(USER_DATA_FILE, true);
-			while ((line = new String(streamReader.ReadLine())) != String.Empty)
+			while ((line = streamReader.ReadLine()) != String.Empty)
 			{
 				//ID:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
 				string[] userData = line.Trim().Split(LOGIN_DATA_FILE_DELIM);

@@ -11,21 +11,25 @@ namespace DataAdministration
 		private string LOGIN_DATA_FILE;
 		private const char LOGIN_DATA_FILE_DELIM = ':';
 
-        private string USER_DATA_FILE = "user_data.txt";
+        private string USER_DATA_FILE;
 
 
         public userLogin()
 		{
 			Stream streamTextFile;
 
-            string FileName = ConfigurationManager.AppSettings["LoginFileName"];
-            string SolutionFileLocation = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName;
-            LOGIN_DATA_FILE = SolutionFileLocation + "\\" + "DATA" + "\\" + FileName;
+            string LoginFileName = ConfigurationManager.AppSettings["LoginFileName"];
+            string SolutionFileLocation = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            LOGIN_DATA_FILE = SolutionFileLocation + "\\" + "DATA" + "\\" + LoginFileName;
 
             streamTextFile = File.Open(LOGIN_DATA_FILE, FileMode.OpenOrCreate);
 			streamTextFile.Close();
 
-			streamTextFile = File.Open(USER_DATA_FILE, FileMode.OpenOrCreate);
+            string DataFileName = ConfigurationManager.AppSettings["UserDataFile"];
+            SolutionFileLocation = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            USER_DATA_FILE = SolutionFileLocation + "\\" + "DATA" + "\\" + DataFileName;
+
+            streamTextFile = File.Open(USER_DATA_FILE, FileMode.OpenOrCreate);
 			streamTextFile.Close();
 		}
 
@@ -55,7 +59,7 @@ namespace DataAdministration
 			streamReader = new StreamReader(USER_DATA_FILE, true);
 			while ((line = streamReader.ReadLine()) != String.Empty)
 			{
-				//ID:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
+				//ID:EMAIL:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
 				string[] userData = line.Trim().Split(LOGIN_DATA_FILE_DELIM);
 
 				//todo TryParse

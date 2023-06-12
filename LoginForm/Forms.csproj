@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StudUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudUI.Designer.cs">
+      <DependentUpon>StudUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +76,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StudUI.resx">
+      <DependentUpon>StudUI.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -86,6 +96,10 @@
     <ProjectReference Include="..\DataAdministration\DataAdministration.csproj">
       <Project>{1ee4710a-89ab-4d1f-ad60-2321feabfb31}</Project>
       <Name>DataAdministration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectDefines\ObjectDefines.csproj">
+      <Project>{7f8e95df-9fef-4966-9c8e-e439cf02f340}</Project>
+      <Name>ObjectDefines</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

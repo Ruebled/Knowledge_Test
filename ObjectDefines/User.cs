@@ -11,6 +11,7 @@ namespace ObjectDefines
 
 	enum USERDATA {
 		ID = 0,
+		EMAIL,
 		FIRST_NAME,
 		LAST_NAME,
 		BIRTH_DATE,
@@ -19,7 +20,8 @@ namespace ObjectDefines
 
 	public class User
 	{
-		public int ID { get; set;}
+		public int ID { get; set; }
+		public string email { get; set; }
 		public string firstName { get; set;}
 		public string lastName { get; set;}
 		public string birthDate { get; set;} 
@@ -29,10 +31,12 @@ namespace ObjectDefines
 
 		public User(){}
 
-		//ID:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
-		public User(string[] userData)
+        //ID:EMAIL:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
+
+        public User(string[] userData)
 		{
 			ID = Convert.ToInt32(userData[(int)USERDATA.ID]);
+			email = userData[(int)USERDATA.EMAIL];
 			firstName = userData[(int)USERDATA.FIRST_NAME];
 			lastName = userData[(int)USERDATA.LAST_NAME];
 			birthDate = userData[(int)USERDATA.BIRTH_DATE];

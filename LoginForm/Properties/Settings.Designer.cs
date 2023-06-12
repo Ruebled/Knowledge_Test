@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Windows.Forms;
+
 namespace LoginForm.Properties
 {
 
@@ -25,6 +28,11 @@ namespace LoginForm.Properties
             {
                 return defaultInstance;
             }
+        }
+
+        internal DialogResult ShowDialog()
+        {
+            throw new NotImplementedException();
         }
     }
 }

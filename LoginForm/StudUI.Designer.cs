@@ -30,10 +30,11 @@
         {
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listViewTests = new System.Windows.Forms.ListView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblLogout = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listViewTests = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblEmail
@@ -52,23 +53,14 @@
             this.lblName.Size = new System.Drawing.Size(0, 24);
             this.lblName.TabIndex = 1;
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(293, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(536, 32);
-            this.textBox1.TabIndex = 4;
-            // 
-            // listViewTests
-            // 
-            this.listViewTests.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.listViewTests.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewTests.HideSelection = false;
-            this.listViewTests.Location = new System.Drawing.Point(190, 159);
-            this.listViewTests.Name = "listViewTests";
-            this.listViewTests.Size = new System.Drawing.Size(842, 387);
-            this.listViewTests.TabIndex = 6;
-            this.listViewTests.UseCompatibleStateImageBehavior = false;
+            this.txtSearch.Location = new System.Drawing.Point(293, 71);
+            this.txtSearch.MaxLength = 100;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(536, 32);
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblLogout
             // 
@@ -90,17 +82,48 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button1.Location = new System.Drawing.Point(1073, 505);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 41);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listViewTests
+            // 
+            this.listViewTests.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.listViewTests.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewTests.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewTests.FormattingEnabled = true;
+            this.listViewTests.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.listViewTests.ItemHeight = 40;
+            this.listViewTests.Location = new System.Drawing.Point(249, 161);
+            this.listViewTests.Margin = new System.Windows.Forms.Padding(10);
+            this.listViewTests.Name = "listViewTests";
+            this.listViewTests.Size = new System.Drawing.Size(757, 360);
+            this.listViewTests.TabIndex = 10;
+            this.listViewTests.SelectedIndexChanged += new System.EventHandler(this.listViewTests_SelectedIndexChanged);
+            // 
             // StudUI
             // 
+            this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(1184, 574);
             this.ControlBox = false;
+            this.Controls.Add(this.listViewTests);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblLogout);
-            this.Controls.Add(this.listViewTests);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblEmail);
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,9 +143,10 @@
 
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListView listViewTests;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblLogout;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listViewTests;
     }
 }

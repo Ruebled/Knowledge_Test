@@ -27,8 +27,6 @@ namespace ObjectDefines
 		public string birthDate { get; set;} 
 		public int ocupation { get; set;}
 
-		protected string[] menuOptions = new string[] {};
-
 		public User(){}
 
         //ID:EMAIL:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
@@ -41,11 +39,6 @@ namespace ObjectDefines
 			lastName = userData[(int)USERDATA.LAST_NAME];
 			birthDate = userData[(int)USERDATA.BIRTH_DATE];
 			ocupation = Convert.ToInt32(userData[(int)USERDATA.OCUPATION]);
-		}
-
-		public virtual string[] getMenu()
-		{
-			return new string[] {};
 		}
 	}
 }

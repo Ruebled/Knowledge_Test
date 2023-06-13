@@ -37,6 +37,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSignup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -91,6 +92,16 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnSignup
+            // 
+            this.btnSignup.CausesValidation = false;
+            this.btnSignup.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.btnSignup, "btnSignup");
+            this.btnSignup.Name = "btnSignup";
+            this.btnSignup.TabStop = false;
+            this.btnSignup.UseVisualStyleBackColor = true;
+            this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
@@ -99,6 +110,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.CancelButton = this.btnCancel;
             this.ControlBox = false;
+            this.Controls.Add(this.btnSignup);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.btnLogin);
@@ -131,6 +143,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnSignup;
     }
 }
 

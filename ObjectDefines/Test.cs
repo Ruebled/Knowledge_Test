@@ -6,50 +6,38 @@ using System.Threading.Tasks;
 
 namespace ObjectDefines
 {
-	private const char TESTS_FILE_DELIM_CORECT = ':';
-	private const string TESTS_FILE_DELIM_QUESTION = "---";
-	private const string TESTS_FILE_DELIM_TESTS = "===";
-
+	
     public class Test
     {
-		public String TestFileName { get; set; }
-        public String Name { get; set; }
-        public Question[] Questions { get; set; }
+        private const char TESTS_FILE_DELIM_CORECT = ':';
+        private const string TESTS_FILE_DELIM_QUESTION = "---";
+		//private const string TESTS_FILE_DELIM_TESTS = "===";
+
+
+		public String TestFileName;
+		public String Name;
+		public List<Question> Questions;
 
         public Test()
         {
             Name = string.Empty;
-            Questions = new Question[0];
+			Questions = new List<Question>();
         }
 
-        public Test(Question[] questions)
+        public Test(List<Question> questions)
         {
             Questions = questions;
         }
 
-		public Test(string[] TestData, string TestFileName_t)
+		public Test(List<string> TestData, string TestFileName_t)
 		{
 			TestFileName = TestFileName_t;
-
-			//TestName
-			//question1
-			//1:answer1
-			//0:answer2
-			//0:answer4
-			//1:answer3
-			//---
-			//question2
-			//1:answer1
-			//0:answer2
-			//0:answer4
-			//1:answer3
-			//---
-
 			
 			int i = 0;
 
 			Name = TestData[i++];
 
+			List<Question> questions_t = new List<Question>();
 			Question question_temp = new Question();
 
 			while(true)
@@ -60,20 +48,25 @@ namespace ObjectDefines
 				{
 					string[] answer = TestData[i++].Trim().Split(TESTS_FILE_DELIM_CORECT);
 					int correct_num = Convert.ToInt32(answer[0]);
-					
-					Answer tempAnswer = new Answer(answer[1], (bool)correct_num);
+
+					Answer tempAnswer = new Answer(answer[1], correct_num != 0) ;
 
 					question_temp.answers.Add(tempAnswer);
 				}
+				i++;
 
-				Questions.Add(question_temp);
+				questions_t.Add(question_temp);
 
-				if(i>=TestData.Length){
+				if(i>=TestData.Count){
 					break;
 				}
 
-				question_temp = new Question();
+				
+
+                //questions_t = new List<Question>();
+                question_temp = new Question();
 			}
-		}
+            this.Questions = questions_t;
+        }
     }
 }

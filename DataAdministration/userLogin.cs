@@ -72,8 +72,6 @@ namespace DataAdministration
 						case 1:
 							return new Admin(userData);
 						case 2:
-							return new Prof(userData);
-						case 3:
 							return new Stud(userData);
 						default:
 							return null;

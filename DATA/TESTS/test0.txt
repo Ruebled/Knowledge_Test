@@ -1,10 +1,9 @@
 fainfesgerfasfefa
----
 fewfafd
 1:fagda
 0:gagrea
 0:afafega
-----
+---
 fadfage
 0:gagd
 1:gagd
@@ -14,3 +13,4 @@ fdafe
 0:fagas
 1:gagfd
 0:fadfa
+---

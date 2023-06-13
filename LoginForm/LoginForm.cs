@@ -51,7 +51,7 @@ namespace UI_Forms
                 StudUI studUI = new StudUI(logedUser, this);
 
                 studUI.Show();
-                ///this.Close();
+                this.Hide();
                 return;
             }
 
@@ -95,6 +95,12 @@ namespace UI_Forms
             }
 
             return true;
+        }
+
+        private void btnSignup_Click(object sender, EventArgs e)
+        {
+            AddUserUI addUserUI = new AddUserUI(this);
+            addUserUI.Show();
         }
     }
 }

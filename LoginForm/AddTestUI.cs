@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LoginForm
+namespace UI_Forms
 {
-    public partial class ProfUI : Form
+    public partial class AddTestUI : Form
     {
-        public ProfUI()
+        public AddTestUI()
         {
             InitializeComponent();
         }

@@ -9,14 +9,19 @@ namespace ObjectDefines
     public class Question
     {
         public string name;
-        public Answer[] answers;
+        public List<Answer> answers;
+
+        public Question(List<Answer> answers)
+        {
+            this.answers = answers;
+        }
 
         public Question() 
         {
-            answers = new Answer[0];
+            answers = new List<Answer>();
         }
 
-        public Question(string name, Answer[] answers)
+        public Question(string name, List<Answer> answers)
         {
             this.name = name;
             this.answers = answers;

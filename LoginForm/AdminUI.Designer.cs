@@ -1,4 +1,4 @@
-﻿namespace LoginForm
+﻿namespace UI_Forms
 {
     partial class AdminUI
     {

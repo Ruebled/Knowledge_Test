@@ -50,29 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUser.cs">
+    <Compile Include="AddUserUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUser.Designer.cs">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <Compile Include="AddUserUI.Designer.cs">
+      <DependentUpon>AddUserUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddTest.cs">
+    <Compile Include="AddTestUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTest.Designer.cs">
-      <DependentUpon>AddTest.cs</DependentUpon>
+    <Compile Include="AddTestUI.Designer.cs">
+      <DependentUpon>AddTestUI.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminUI.Designer.cs">
       <DependentUpon>AdminUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProfUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProfUI.Designer.cs">
-      <DependentUpon>ProfUI.cs</DependentUpon>
     </Compile>
     <Compile Include="StudUI.cs">
       <SubType>Form</SubType>
@@ -88,14 +82,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.cs">
+    <Compile Include="TestUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
+    <Compile Include="TestUI.Designer.cs">
+      <DependentUpon>TestUI.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddUser.resx">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="AddTestUI.resx">
+      <DependentUpon>AddTestUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUserUI.resx">
+      <DependentUpon>AddUserUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUI.resx">
       <DependentUpon>AdminUI.cs</DependentUpon>
@@ -115,8 +112,8 @@
     <EmbeddedResource Include="StudUI.resx">
       <DependentUpon>StudUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
+    <EmbeddedResource Include="TestUI.resx">
+      <DependentUpon>TestUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -15,15 +15,9 @@ namespace DataAdministration
 
         public ManageTests()
         {
-            //Stream streamTextFile;
-
-            //string DataFileName = ConfigurationManager.AppSettings["TestsFileName"];
             string SolutionFileLocation = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            //TESTS_DATA_FILE = SolutionFileLocation + "\\" + "DATA" + "\\" + DataFileName;
 			TESTS_DIR = SolutionFileLocation + "\\" + "DATA" + "\\" + "TESTS" + "\\";
 
-            // streamTextFile = File.Open(TESTS_DIR, FileMode.OpenOrCreate);
-            //streamTextFile.Close();
         }
 
         public List<Test> GetTests()
@@ -48,15 +42,37 @@ namespace DataAdministration
         }
 
 		public void AddTestToFile(Test test){
-            using (StreamWriter streamWriterFisierText = new StreamWriter(TESTS_DIR+test.fileName, true))
+            using (StreamWriter streamWriterFisierText = new StreamWriter(TESTS_DIR+test.TestFileName, true))
             {
-                streamWriterFisierText.WriteLine(test.ToString());
+                streamWriterFisierText.WriteLine(test.ToFileStringConvert());
             }
 		}
 
-		public void DeleteTest(Test test)
+        public void AddTestsToFile(List<Test> tests)
+        {
+            foreach(Test test in tests)
+            {
+                AddTestToFile(test);
+            }
+        }
+
+        public void DeleteTest(Test test_t)
 		{
-			File.Delete(TESTS_DIR+test.fileName);
+            
+            List<Test> test_list = GetTests();
+
+            foreach (Test test in test_list)
+            {
+                if (test == test_t)
+                {
+                    test_list.Remove(test);
+                    break;
+                }
+            }
+
+            AddTestsToFile(test_list);
+            
+            File.Delete(TESTS_DIR+test_t.TestFileName);
 		}
    
 

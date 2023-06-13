@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjectDefines;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,14 @@ namespace UI_Forms
         {
             InitializeComponent();
         }
+
+        public AdminUI(User user, Login login)
+        {
+            User = user;
+            Login = login;
+        }
+
+        public User User { get; }
+        public Login Login { get; }
     }
 }

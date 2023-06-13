@@ -19,21 +19,21 @@ namespace ObjectDefines
 
         public Test()
         {
-			ID = GenerateID();
+			ID = -1;
             Name = string.Empty;
 			Questions = new List<Question>();
         }
 
 		public int GenerateID(){
-			var id64Generator = new Id64Generator();
+			var rand = new Random();
 
-			return id64Generator.GenerateId();
-
+			return rand.Next(0, 100000);
 		}
 
         public Test(string name, List<Question> questions)
         {
 			ID = GenerateID();
+			Name = name;
             Questions = questions;
         }
 
@@ -43,11 +43,11 @@ namespace ObjectDefines
 			
 			int i = 0;
 
-			firstLine = TestData[i++];
+            string firstLine = TestData[i++];
 			string[] ID_Name = firstLine.Trim().Split(TESTS_FILE_DELIM_CORECT);
 
 			ID = Convert.ToInt32(ID_Name[0]);
-			Name = Convert.ToInt32(ID_Name[0]);
+			Name = ID_Name[1];
 
 			List<Question> questions_t = new List<Question>();
 			Question question_temp = new Question();
@@ -78,22 +78,23 @@ namespace ObjectDefines
             this.Questions = questions_t;
         }
 
-		public string[] ToString()
+		public List<string> ToFileStringConvert()
 		{
-			string[] Test_to_string = new String[]();
+			List<string> Test_to_string = new List<string>();
 
 			int i = 0;
 
 			Test_to_string.Add(String.Format("{0}{1}{2}", this.ID, TESTS_FILE_DELIM_CORECT, this.Name));
 
 			foreach(Question question in Questions){
-				Test_to_string.Add(question.Name);
+				Test_to_string.Add(question.name);
 
-				foreach(Answer answer in Answers){
+				foreach(Answer answer in question.answers){
 					Test_to_string.Add(string.Format("{0}{1}{2}", answer.correct.ToString(), TESTS_FILE_DELIM_CORECT, answer.text));
 				}
 				Test_to_string.Add(TESTS_FILE_DELIM_QUESTION);
 			}
+			return Test_to_string;
 		}
     }
 }

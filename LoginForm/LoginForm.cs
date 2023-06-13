@@ -6,18 +6,19 @@ using ObjectDefines;
 using System.Drawing;
 using System.Dynamic;
 using UI_Forms;
+using System.Collections.Generic;
 
 namespace UI_Forms
 {
     public partial class Login : Form
     {
-        userLogin user;
+        User user;
 
         public Login()
         {
             InitializeComponent();
 
-            user = new userLogin();
+            user = null;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -32,12 +33,24 @@ namespace UI_Forms
                 lblMessage.ForeColor = Color.Red;
                 return;
             }
+
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            User logedUser = user.getUser(username, password);
+            ManageUsers manageUsers = new ManageUsers();
 
-            if (logedUser == null)
+            List<User> users = manageUsers.GetUsers();
+
+            foreach(User user in users)
+            {
+                if(user.email == username && user.password == password)
+                {
+                    this.user = user;
+                    break;
+                }
+            }
+
+            if (this.user == null)
             {
                 lblMessage.Text = "User not exist";
                 lblMessage.ForeColor = Color.Red;
@@ -46,15 +59,24 @@ namespace UI_Forms
 
             lblMessage.Text = "";
 
-            if(logedUser is Stud)
+            switch (this.user.ocupation)
             {
-                StudUI studUI = new StudUI(logedUser, this);
+                case 1:
+                    AdminUI adminUI = new AdminUI(this.user, this);
 
-                studUI.Show();
-                this.Hide();
-                return;
+                    adminUI.Show();
+                    this.Hide();
+                    return;
+                case 2:
+                    StudUI studUI = new StudUI(this.user, this);
+
+                    studUI.Show();
+                    this.Hide();
+                    return;
+                default:
+                    break;
+                
             }
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

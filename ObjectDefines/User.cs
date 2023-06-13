@@ -41,5 +41,14 @@ namespace ObjectDefines
 			ocupation = Convert.ToInt32(userData[(int)USERDATA.OCUPATION]);
 		}
 	}
+	
+	public string ToStringUserLogin()
+	{
+		return String.Format("{0}{1}{2}{1}{3}{1}{4}",
+			this.ID,
+			this.email,
+			this.password,
+
+	}
 }
 

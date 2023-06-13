@@ -46,6 +46,18 @@ namespace DataAdministration
 
 			return TestsData;
         }
+
+		public void AddTestToFile(Test test){
+            using (StreamWriter streamWriterFisierText = new StreamWriter(TESTS_DIR+test.fileName, true))
+            {
+                streamWriterFisierText.WriteLine(test.ToString());
+            }
+		}
+
+		public void DeleteTest(Test test)
+		{
+			File.Delete(TESTS_DIR+test.fileName);
+		}
    
 
     }

@@ -11,21 +11,29 @@ namespace ObjectDefines
     {
         private const char TESTS_FILE_DELIM_CORECT = ':';
         private const string TESTS_FILE_DELIM_QUESTION = "---";
-		//private const string TESTS_FILE_DELIM_TESTS = "===";
 
-
+		public int ID;
 		public String TestFileName;
 		public String Name;
 		public List<Question> Questions;
 
         public Test()
         {
+			ID = GenerateID();
             Name = string.Empty;
 			Questions = new List<Question>();
         }
 
-        public Test(List<Question> questions)
+		public int GenerateID(){
+			var id64Generator = new Id64Generator();
+
+			return id64Generator.GenerateId();
+
+		}
+
+        public Test(string name, List<Question> questions)
         {
+			ID = GenerateID();
             Questions = questions;
         }
 
@@ -35,7 +43,11 @@ namespace ObjectDefines
 			
 			int i = 0;
 
-			Name = TestData[i++];
+			firstLine = TestData[i++];
+			string[] ID_Name = firstLine.Trim().Split(TESTS_FILE_DELIM_CORECT);
+
+			ID = Convert.ToInt32(ID_Name[0]);
+			Name = Convert.ToInt32(ID_Name[0]);
 
 			List<Question> questions_t = new List<Question>();
 			Question question_temp = new Question();
@@ -61,12 +73,27 @@ namespace ObjectDefines
 					break;
 				}
 
-				
-
-                //questions_t = new List<Question>();
                 question_temp = new Question();
 			}
             this.Questions = questions_t;
         }
+
+		public string[] ToString()
+		{
+			string[] Test_to_string = new String[]();
+
+			int i = 0;
+
+			Test_to_string.Add(String.Format("{0}{1}{2}", this.ID, TESTS_FILE_DELIM_CORECT, this.Name));
+
+			foreach(Question question in Questions){
+				Test_to_string.Add(question.Name);
+
+				foreach(Answer answer in Answers){
+					Test_to_string.Add(string.Format("{0}{1}{2}", answer.correct.ToString(), TESTS_FILE_DELIM_CORECT, answer.text));
+				}
+				Test_to_string.Add(TESTS_FILE_DELIM_QUESTION);
+			}
+		}
     }
 }

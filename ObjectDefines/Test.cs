@@ -24,7 +24,30 @@ namespace ObjectDefines
 			Questions = new List<Question>();
         }
 
-		public int GenerateID(){
+        public Test(Test test_t)
+        {
+			ID = test_t.ID;
+			TestFileName = test_t.TestFileName;
+			Name = test_t.Name;
+			Questions = new List<Question>();
+			
+			foreach(Question question in test_t.Questions)
+			{
+				Question question_t = new Question();
+				question_t.name = question.name;
+
+				foreach(Answer answer in question.answers)
+				{
+					Answer answer_t = new Answer();
+					answer_t.text = answer.text;
+					answer_t.correct = answer.correct;
+					question_t.answers.Add(answer_t);
+				}
+				Questions.Add(question_t);
+			}
+        }
+
+        public int GenerateUniqID(){
 			var rand = new Random();
 
 			return rand.Next(0, 100000);
@@ -32,7 +55,7 @@ namespace ObjectDefines
 
         public Test(string name, List<Question> questions)
         {
-			ID = GenerateID();
+			ID = GenerateUniqID();
 			Name = name;
             Questions = questions;
         }
@@ -78,7 +101,9 @@ namespace ObjectDefines
             this.Questions = questions_t;
         }
 
-		public List<string> ToFileStringConvert()
+
+
+        public List<string> ToFileStringConvert()
 		{
 			List<string> Test_to_string = new List<string>();
 

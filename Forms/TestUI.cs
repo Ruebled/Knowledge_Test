@@ -11,7 +11,6 @@ using ObjectDefines;
 
 namespace UI_Forms
 {
-    
 
     public partial class TestUI : Form
     {
@@ -32,7 +31,7 @@ namespace UI_Forms
             test = test_t;
             StudUI = studUI;
 
-            test_in_progress = test_t;
+            test_in_progress = new Test(test_t);
            
             null_test_list();
 
@@ -48,16 +47,16 @@ namespace UI_Forms
 
         public void null_test_list()
         {
-            int question_cnt = 0;
+       
             foreach(Question question in test_in_progress.Questions)
             {
-                int answer_cnt = 0;
+                
                 foreach(Answer answer in question.answers)
                 {
-                    test_in_progress.Questions[question_cnt].answers[answer_cnt].correct = false;
-                    answer_cnt++;
+                    answer.correct = false;
+
                 }
-                question_cnt = 0;
+           
             }
         }
 
@@ -75,16 +74,6 @@ namespace UI_Forms
 
         public Test test { get; }
         public StudUI StudUI { get; }
-
-        private void lblQuestion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listViewAnswers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
@@ -118,7 +107,8 @@ namespace UI_Forms
         private void ckbList_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selected_index = ckbList.SelectedIndex;
-            bool selected_state = ckbList.GetItemChecked(selected_index);
+            bool selected_state = !ckbList.GetItemChecked(selected_index);
+            ckbList.SetItemChecked(selected_index, selected_state);
 
             test_in_progress.Questions[currentQuestionIndex].answers[selected_index].correct = selected_state;
         }
@@ -146,15 +136,11 @@ namespace UI_Forms
                 this.total++;
             }
 
-            string mesaj_scor = string.Format("Answered {0}/{1}", this.score, this.total);
+            //Change score in user for this test
 
-            var confirmResult = MessageBox.Show(mesaj_scor, "Confirm!", MessageBoxButtons.YesNo);
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                this.Close();
-                StudUI.Show();
-            }
+            ResultUI resultui = new ResultUI(string.Format("Score {0}/{1}", this.score, this.total), StudUI);
+            resultui.Show();
+            this.Close();
             return;
         }
 
@@ -168,6 +154,11 @@ namespace UI_Forms
                 StudUI.Show();
             }
             return;
+        }
+
+        private void ckbList_SelectedIndexChanged(object sender, ItemCheckEventArgs e)
+        {
+
         }
     }
 }

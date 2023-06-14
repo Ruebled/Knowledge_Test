@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using ObjectDefines;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DataAdministration
 {
@@ -36,6 +37,10 @@ namespace DataAdministration
 
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
+                    if(linieFisier == string.Empty)
+                    {
+                        return users;
+                    }
                     users.Add(new User(linieFisier));
                 }
             }
@@ -50,20 +55,23 @@ namespace DataAdministration
             }
         }
 
-        public void DeleteUser(User user)
+        public void DeleteUser(User user_t)
         {
-            List<User> stud_list = GetUsers();
+            
+            List<User> user_list = GetUsers();
+            List<User> user_list_tmp = new List<User>();
 
-            foreach(User stud in stud_list)
+            using (StreamWriter streamWriterFisierText = new StreamWriter(USERS_DATA_FILE, false)) { }
+
+            foreach (User user in user_list)
             {
-                if(stud == user)
+                if(user.ID != user_t.ID)
                 {
-                    stud_list.Remove(stud);
-                    break;
+                    user_list_tmp.Add(user);
                 }
             }
 
-            AddUsersToFile(stud_list);
+            AddUsersToFile(user_list_tmp);
         }
 
         public void AddUsersToFile(List<User> user_list)

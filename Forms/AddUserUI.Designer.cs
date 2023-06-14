@@ -87,7 +87,6 @@
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(0, 19);
             this.lblMessage.TabIndex = 15;
-            this.lblMessage.Click += new System.EventHandler(this.lblMessage_Click);
             // 
             // lblWelcome
             // 
@@ -99,7 +98,6 @@
             this.lblWelcome.Size = new System.Drawing.Size(140, 49);
             this.lblWelcome.TabIndex = 13;
             this.lblWelcome.Text = "Sign up";
-            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
             // 
             // txtPassword
             // 
@@ -111,7 +109,6 @@
             this.txtPassword.Size = new System.Drawing.Size(263, 32);
             this.txtPassword.TabIndex = 12;
             this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
             // 
@@ -122,7 +119,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(263, 32);
             this.txtUsername.TabIndex = 11;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // lblPassword
             // 
@@ -134,7 +130,6 @@
             this.lblPassword.Size = new System.Drawing.Size(105, 29);
             this.lblPassword.TabIndex = 10;
             this.lblPassword.Text = "Password";
-            this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
             // lblUsername
             // 
@@ -146,7 +141,6 @@
             this.lblUsername.Size = new System.Drawing.Size(68, 29);
             this.lblUsername.TabIndex = 9;
             this.lblUsername.Text = "Email";
-            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
             // dtpBirth
             // 
@@ -189,7 +183,6 @@
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(263, 32);
             this.txtLastname.TabIndex = 23;
-            this.txtLastname.UseSystemPasswordChar = true;
             // 
             // txtFirstname
             // 
@@ -265,7 +258,6 @@
             this.MinimumSize = new System.Drawing.Size(556, 566);
             this.Name = "AddUserUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.AddUserUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

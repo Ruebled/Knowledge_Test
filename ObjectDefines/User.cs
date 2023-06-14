@@ -2,13 +2,6 @@ using System;
 
 namespace ObjectDefines
 {
-	//struct birthDate
-	//{
-	//	int day;
-	//	int month;
-	//	int year;
-	//}
-
 	enum USERDATA {
 		ID = 0,
 		EMAIL,
@@ -18,8 +11,6 @@ namespace ObjectDefines
 		BIRTH_DATE,
 		OCUPATION
 	}
-
-
 
 	public class User
 	{
@@ -34,9 +25,9 @@ namespace ObjectDefines
 
 		public string password { get; set; }
 
-		public User() { }
-
-		//ID:EMAIL:FIRST_NAME:SECOND_NAME:BIRTH_DATE:OCUPATION
+		public User() {
+			ID = GenerateUniqID();
+		}
 
 		public User(string userData_line)
 		{
@@ -52,17 +43,26 @@ namespace ObjectDefines
 		}
 
 
-		public virtual string ToStringFileFormat()
+		public string ToStringFileFormat()
 		{
-            return String.Format("{0}{1}{2}{1}{3}{1}{4}{1}{5}{1}{6}",
+            return String.Format("{0}{1}{2}{1}{3}{1}{4}{1}{5}{1}{6}{1}{7}",
                 this.ID,
+				USER_DATA_FILE_DELIM,
                 this.email,
+				this.password,
                 this.firstName,
                 this.lastName,
                 this.birthDate,
                 this.ocupation
                 );
         }
-	}
+
+        public int GenerateUniqID()
+        {
+            var rand = new Random();
+
+            return rand.Next(0, 100000);
+        }
+    }
 }
 

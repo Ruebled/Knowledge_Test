@@ -6,15 +6,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4A6C0DA1-581B-4759-AE8A-B5742B4ABC16}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LoginForm</RootNamespace>
-    <AssemblyName>LoginForm</AssemblyName>
+    <RootNamespace>UI_Forms</RootNamespace>
+    <AssemblyName>UI_Forms</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -68,6 +68,12 @@
     <Compile Include="AdminUI.Designer.cs">
       <DependentUpon>AdminUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResultUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultUI.Designer.cs">
+      <DependentUpon>ResultUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,7 +114,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResultUI.resx">
+      <DependentUpon>ResultUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudUI.resx">
       <DependentUpon>StudUI.cs</DependentUpon>
     </EmbeddedResource>

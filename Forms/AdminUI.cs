@@ -191,7 +191,9 @@ namespace UI_Forms
 
         private void btnAddTest_Click(object sender, EventArgs e)
         {
-
+            AddTestUI addTestUI = new AddTestUI(this);
+            addTestUI.Show();
+            this.Hide();
         }
     }
 }

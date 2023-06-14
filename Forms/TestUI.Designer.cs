@@ -48,7 +48,6 @@
             this.lblQuestion.Size = new System.Drawing.Size(1246, 53);
             this.lblQuestion.TabIndex = 0;
             this.lblQuestion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblQuestion.Click += new System.EventHandler(this.lblQuestion_Click);
             // 
             // btnPrev
             // 

@@ -15,8 +15,9 @@ namespace UI_Forms
 {
     public partial class StudUI : Form
     {
+        List<Test> temp_Test_list;
         User User { get; set; }
-        UI_Forms.Login loginForm;
+        Login loginForm;
 
         List<Test> tests = new List<Test>();
 
@@ -62,18 +63,14 @@ namespace UI_Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<Test> temp_Test_list = new List<Test>();
-            if(txtSearch.Text == String.Empty)
-            {
-                ManageTests TestAdministration = new ManageTests();
-                tests = TestAdministration.GetTests();
-                Display_Tests();
-                return;
-            }
+            ManageTests TestAdministration = new ManageTests();
+            tests = TestAdministration.GetTests();
+
+            temp_Test_list = new List<Test>();
 
             string search_query = txtSearch.Text;
 
-           foreach(Test test in tests)
+            foreach(Test test in tests)
             {
                 if(test.Name.IndexOf(search_query) != -1)
                 {
@@ -81,23 +78,22 @@ namespace UI_Forms
                 }
             }
 
-            tests = temp_Test_list;
+            if (search_query != string.Empty)
+            {
+                tests = temp_Test_list;
+            }
+            
             Display_Tests();
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("Are you sure you wanna exit?", "Confirm Exit!", MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
             {
                 this.Close();
-                loginForm.Close();
+                loginForm.Show();
             }
             return;
         }

@@ -58,6 +58,8 @@ namespace UI_Forms
             }
 
             lblMessage.Text = "";
+            txtPassword.Text = "";
+            txtUsername.Text = "";
 
             switch (this.user.ocupation)
             {
@@ -123,6 +125,7 @@ namespace UI_Forms
         {
             AddUserUI addUserUI = new AddUserUI(this);
             addUserUI.Show();
+            this.Hide();
         }
     }
 }

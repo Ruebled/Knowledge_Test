@@ -104,6 +104,13 @@ namespace UI_Forms
 
         private bool ValidateDataGridView()
         {
+            if(dgvTest.Rows.Count == 0)
+            {
+                msgErr.Text = "No questions";
+                msgErr.ForeColor = Color.Red;
+                return false;
+            }
+
             int ansChecked = 0;
 
             if(txtName.Text == String.Empty)
@@ -190,33 +197,58 @@ namespace UI_Forms
         private void dgvTest_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             bool state = false;
-            DataGridViewRowCollection rows = dgvTest.Rows;
+            DataGridViewRow row;
 
-            foreach (DataGridViewRow row in rows)
+            int i = 0;
+
+            while(true)
             {
-                if(row == null)
+                if (i >= dgvTest.Rows.Count)
+                {
+                    break;
+                }
+
+                row = dgvTest.Rows[i];
+
+                if (row == null)
                 {
                     break;
                 }
 
                 if (row.Selected)
                 {
-                    state = true;
-                    continue;
+                    row.Selected = false;
+                    if (row.Cells[1].Value.ToString().IndexOf("Answer") != -1)
+                    {
+                        //dgvTest.Rows.RemoveAt(i);
+                        break;
+                    }
+
+                    if (row.Cells[1].Value.ToString().IndexOf("Question") != -1)
+                    {
+                        state = true;
+                        i++;
+                        continue;
+                    }
                 }
 
-                if (state && row.Cells[1].Value.ToString().IndexOf("Question") != -1)
+                if (state)
                 {
-                    break;
-                }
+                    if (row.Cells[1].Value.ToString().IndexOf("Question") != -1)
+                    {
+                        break;
+                    }
 
-                if (state && row.Cells[1].Value.ToString().IndexOf("Answer") != -1)
-                {
-                    dgvTest.Rows.Remove(row);
-                    continue;
+                    if (row.Cells[1].Value.ToString().IndexOf("Answer") != -1)
+                    {
+                        dgvTest.Rows.RemoveAt(i);
+                        continue;
+                    }
                 }
+                i++;
                 
             }
+            return;
         }
     }
 }

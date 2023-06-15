@@ -20,6 +20,7 @@ namespace UI_Forms
         int total;
 
         Test test_in_progress = new Test();
+        private AdminUI adminUI;
 
         public TestUI()
         {
@@ -62,6 +63,37 @@ namespace UI_Forms
             }
 
             if (currentQuestionIndex == test.Questions.Count - 1)
+            {
+                btnNext.Enabled = false;
+                btnFinish.Enabled = true;
+            }
+        }
+
+        public TestUI(Test test_t, AdminUI adminUI)
+        {
+            this.test = test_t;
+            this.adminUI = adminUI;;
+
+            test_in_progress = new Test(test_t);
+
+            null_test_list();
+
+            InitializeComponent();
+
+            adminUI.Hide();
+
+            score = 0;
+            total = 0;
+            currentQuestionIndex = 0;
+            RedrawQuestion();
+
+
+            if (currentQuestionIndex == 0)
+            {
+                btnPrev.Enabled = false;
+            }
+
+            if (currentQuestionIndex == test_t.Questions.Count - 1)
             {
                 btnNext.Enabled = false;
                 btnFinish.Enabled = true;
@@ -134,10 +166,13 @@ namespace UI_Forms
         private void ckbList_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selected_index = ckbList.SelectedIndex;
-            bool selected_state = !ckbList.GetItemChecked(selected_index);
-            ckbList.SetItemChecked(selected_index, selected_state);
+            bool selected_state = ckbList.GetItemChecked(selected_index);
 
-            test_in_progress.Questions[currentQuestionIndex].answers[selected_index].correct = selected_state;
+            ckbList.SetItemChecked(selected_index, !selected_state);
+
+            test_in_progress.Questions[currentQuestionIndex].answers[selected_index].correct = !selected_state;
+
+            //ckbList.SelectedIndex = 0;
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
@@ -164,8 +199,17 @@ namespace UI_Forms
             }
 
             //Change score in user for this test
+            ResultUI resultui;
 
-            ResultUI resultui = new ResultUI(string.Format("Score {0}/{1}", this.score, this.total), StudUI);
+            if (adminUI != null)
+            {
+                resultui = new ResultUI(string.Format("Score {0}/{1}", this.score, this.total), adminUI);
+            }
+            else
+            {
+                resultui = new ResultUI(string.Format("Score {0}/{1}", this.score, this.total), StudUI);
+            }
+           
             resultui.Show();
             this.Close();
             return;

@@ -1,0 +1,13 @@
+87858:PIU
+Limbajul utilizat?
+0:C
+1:C#
+0:C++
+0:++C
+0:POO
+---
+Ce face urmatoare linie de cod: i+++2;
+0:Error sintax
+1:Se incrementeaza i apoi se aduna 2
+0:Nu stiu
+---

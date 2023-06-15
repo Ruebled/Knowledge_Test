@@ -13,6 +13,8 @@ namespace UI_Forms
     public partial class ResultUI : Form
     {
         public StudUI StudUI { get; }
+        public string V { get; }
+        public AdminUI AdminUI { get; }
 
         public ResultUI()
         {
@@ -28,9 +30,27 @@ namespace UI_Forms
             lblScore.Text = results;
         }
 
+        public ResultUI(string v, AdminUI adminUI)
+        {
+            V = v;
+            AdminUI = adminUI;
+
+            InitializeComponent();
+
+            lblScore.Text = v;
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
-            StudUI.Show();
+            if(StudUI != null)
+            {
+                StudUI.Show();
+            }
+            else
+            {
+                AdminUI.Show();
+            }
+
             this.Close();
         }
     }

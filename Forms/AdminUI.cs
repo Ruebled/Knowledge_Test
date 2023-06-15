@@ -12,6 +12,7 @@ namespace UI_Forms
     {
         List<Test> temp_Test_list;
         List<User> temp_User_list;
+
         public List<User> users { get; set; }
         public List<Test> tests { get; set; }
         public User User { get; }
@@ -61,12 +62,12 @@ namespace UI_Forms
 
         private void Display_Tests()
         {
-
-            FontFamily family = new FontFamily("Calibri");
-            float font_size = 18;
-            FontStyle style = FontStyle.Bold;
-
             lstBox.Items.Clear();
+
+            if(tests == null)
+            {
+                return;
+            }
 
             foreach (Test test in tests)
             {
@@ -77,12 +78,12 @@ namespace UI_Forms
 
         private void Display_Users()
         {
-
-            FontFamily family = new FontFamily("Calibri");
-            float font_size = 18;
-            FontStyle style = FontStyle.Bold;
-
             lstBox.Items.Clear();
+
+            if (users == null)
+            {
+                return;
+            }
 
             foreach (User user in users)
             {
@@ -183,8 +184,7 @@ namespace UI_Forms
             }
             else
             {
-                /*ManageTests manageTests = new ManageTests();
-                tests = manageTests.GetTests();*/
+                //
             }
             
         }
@@ -194,6 +194,14 @@ namespace UI_Forms
             AddTestUI addTestUI = new AddTestUI(this);
             addTestUI.Show();
             this.Hide();
+        }
+
+        private void AdminUI_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = lblEmail;
+
+            lblEmail.Text = User.email;
+            lblName.Text = (string.Format("{0} {1}", User.firstName, User.lastName));
         }
     }
 }

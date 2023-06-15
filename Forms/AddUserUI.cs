@@ -61,13 +61,13 @@ namespace UI_Forms
         {
             if(this.AdminUI != null)
             {
-                this.Close();
-                AdminUI.Show();
-
                 ManageUsers manageUsers = new ManageUsers();
                 AdminUI.users = manageUsers.GetUsers();
 
                 AdminUI.Display();
+
+                this.Close();
+                AdminUI.Show();
                 return;
             }
 
@@ -116,6 +116,10 @@ namespace UI_Forms
                 this.Close();
                 Login.Show();
             }
+            if(AdminUI != null)
+            {
+                btnCancel_Click(sender, e);
+            }
         }
 
         private void ClearComponents()
@@ -131,14 +135,35 @@ namespace UI_Forms
         {
             if (txtFirstname.Text == string.Empty)
             {
-                msgErr.Text = "FirstName required";
+                msgErr.Text = "Firstname required";
                 msgErr.ForeColor = Color.Red;
                 return false;
             }
 
-            if(txtLastname.Text == string.Empty)
+            if (txtFirstname.Text.Length < 4)
             {
-                msgErr.Text = "LastName required";
+                msgErr.Text = "Firstname to short";
+                msgErr.ForeColor = Color.Red;
+                return false;
+            }
+
+            if (txtLastname.Text == string.Empty)
+            {
+                msgErr.Text = "Lastname required";
+                msgErr.ForeColor = Color.Red;
+                return false;
+            }
+
+            if (txtLastname.Text.Length < 4)
+            {
+                msgErr.Text = "LasnName to short";
+                msgErr.ForeColor = Color.Red;
+                return false;
+            }
+
+            if (txtPassword.Text.Length < 5)
+            {
+                msgErr.Text = "Password less than 5 characters";
                 msgErr.ForeColor = Color.Red;
                 return false;
             }

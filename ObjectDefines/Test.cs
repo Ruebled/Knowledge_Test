@@ -19,7 +19,8 @@ namespace ObjectDefines
 
         public Test()
         {
-			ID = -1;
+			ID = GenerateUniqID();
+			TestFileName = ID.ToString() + ".txt";
             Name = string.Empty;
 			Questions = new List<Question>();
         }
@@ -107,15 +108,13 @@ namespace ObjectDefines
 		{
 			List<string> Test_to_string = new List<string>();
 
-			int i = 0;
-
 			Test_to_string.Add(String.Format("{0}{1}{2}", this.ID, TESTS_FILE_DELIM_CORECT, this.Name));
 
 			foreach(Question question in Questions){
 				Test_to_string.Add(question.name);
 
 				foreach(Answer answer in question.answers){
-					Test_to_string.Add(string.Format("{0}{1}{2}", answer.correct.ToString(), TESTS_FILE_DELIM_CORECT, answer.text));
+					Test_to_string.Add(string.Format("{0}{1}{2}", Convert.ToInt32(answer.correct).ToString(), TESTS_FILE_DELIM_CORECT, answer.text));
 				}
 				Test_to_string.Add(TESTS_FILE_DELIM_QUESTION);
 			}

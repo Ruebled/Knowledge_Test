@@ -30,7 +30,6 @@
         {
             this.btnSignup = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.lblMessage = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -77,16 +76,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblMessage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblMessage.Location = new System.Drawing.Point(210, 423);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 19);
-            this.lblMessage.TabIndex = 15;
             // 
             // lblWelcome
             // 
@@ -243,7 +232,6 @@
             this.Controls.Add(this.dtpBirth);
             this.Controls.Add(this.btnSignup);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -267,7 +255,6 @@
 
         private System.Windows.Forms.Button btnSignup;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;

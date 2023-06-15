@@ -57,7 +57,7 @@
             this.txtQuery.Location = new System.Drawing.Point(292, 71);
             this.txtQuery.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(533, 32);
+            this.txtQuery.Size = new System.Drawing.Size(550, 32);
             this.txtQuery.TabIndex = 12;
             this.txtQuery.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -154,6 +154,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminUI";
+            this.Load += new System.EventHandler(this.AdminUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

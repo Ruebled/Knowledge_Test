@@ -44,7 +44,11 @@ namespace DataAdministration
 		public void AddTestToFile(Test test){
             using (StreamWriter streamWriterFisierText = new StreamWriter(TESTS_DIR+test.TestFileName, true))
             {
-                streamWriterFisierText.WriteLine(test.ToFileStringConvert());
+                List<string> testString = test.ToFileStringConvert();
+                foreach (string str in testString)
+                {
+                    streamWriterFisierText.WriteLine(str);
+                }
             }
 		}
 

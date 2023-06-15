@@ -23,7 +23,7 @@ namespace UI_Forms
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = lblWelcome;
+            this.ActiveControl = txtUsername;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -111,6 +111,8 @@ namespace UI_Forms
                 lblMessage.Text = "Password cannot be empty";
                 return false;
             }
+
+            
 
             if(!rx.IsMatch(txtUsername.Text))
             {

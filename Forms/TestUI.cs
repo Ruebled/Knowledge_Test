@@ -24,6 +24,17 @@ namespace UI_Forms
         public TestUI()
         {
             InitializeComponent();
+
+            if (currentQuestionIndex == 0)
+            {
+                btnPrev.Enabled = false;
+            }
+
+            if (currentQuestionIndex == test.Questions.Count - 1)
+            {
+                btnNext.Enabled = false;
+                btnFinish.Enabled = true;
+            }
         }
 
         public TestUI(Test test_t, StudUI studUI)
@@ -43,6 +54,18 @@ namespace UI_Forms
             total = 0;
             currentQuestionIndex = 0;
             RedrawQuestion();
+
+
+            if (currentQuestionIndex == 0)
+            {
+                btnPrev.Enabled = false;
+            }
+
+            if (currentQuestionIndex == test.Questions.Count - 1)
+            {
+                btnNext.Enabled = false;
+                btnFinish.Enabled = true;
+            }
         }
 
         public void null_test_list()
@@ -62,13 +85,17 @@ namespace UI_Forms
 
         public void RedrawQuestion()
         {
-            lblQuestion.Text = test.Questions[currentQuestionIndex].name;
+            lblQuestion.Text = test_in_progress.Questions[currentQuestionIndex].name;
 
             ckbList.Items.Clear();
 
-            foreach(Answer answer in test.Questions[currentQuestionIndex].answers)
+            int i = 0;
+
+            foreach(Answer answer in test_in_progress.Questions[currentQuestionIndex].answers)
             {
+                
                 ckbList.Items.Add(answer.text);
+                ckbList.SetItemChecked(i++, answer.correct);
             }
         }
 
@@ -154,11 +181,6 @@ namespace UI_Forms
                 StudUI.Show();
             }
             return;
-        }
-
-        private void ckbList_SelectedIndexChanged(object sender, ItemCheckEventArgs e)
-        {
-
         }
     }
 }

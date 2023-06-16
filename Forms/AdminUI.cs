@@ -184,7 +184,10 @@ namespace UI_Forms
             }
             else
             {
-                //
+                int index1 = lstBox.SelectedIndex;
+                TestUI test_interface = new TestUI(tests[index1], this);
+
+                test_interface.Show();
             }
             
         }

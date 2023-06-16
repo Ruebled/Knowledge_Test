@@ -34,10 +34,10 @@
             this.btnAddQuestion = new System.Windows.Forms.Button();
             this.dgvTest = new System.Windows.Forms.DataGridView();
             this.btnAddAnswer = new System.Windows.Forms.Button();
+            this.msgErr = new System.Windows.Forms.Label();
             this.ckbColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.msgErr = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +121,15 @@
             this.btnAddAnswer.UseVisualStyleBackColor = false;
             this.btnAddAnswer.Click += new System.EventHandler(this.btnAddAnswer_Click);
             // 
+            // msgErr
+            // 
+            this.msgErr.AutoSize = true;
+            this.msgErr.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msgErr.Location = new System.Drawing.Point(134, 12);
+            this.msgErr.Name = "msgErr";
+            this.msgErr.Size = new System.Drawing.Size(0, 22);
+            this.msgErr.TabIndex = 24;
+            // 
             // ckbColumn
             // 
             this.ckbColumn.HeaderText = "";
@@ -146,16 +155,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column2.Width = 410;
-            // 
-            // msgErr
-            // 
-            this.msgErr.AutoSize = true;
-            this.msgErr.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.msgErr.Location = new System.Drawing.Point(134, 12);
-            this.msgErr.Name = "msgErr";
-            this.msgErr.Size = new System.Drawing.Size(0, 22);
-            this.msgErr.TabIndex = 24;
+            this.Column2.Width = 400;
             // 
             // AddTestUI
             // 
@@ -189,9 +189,9 @@
         private System.Windows.Forms.Button btnAddQuestion;
         private System.Windows.Forms.DataGridView dgvTest;
         private System.Windows.Forms.Button btnAddAnswer;
+        private System.Windows.Forms.Label msgErr;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ckbColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Label msgErr;
     }
 }
